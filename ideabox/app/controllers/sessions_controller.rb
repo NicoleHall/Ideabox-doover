@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
+      # flash.now[:error] = "Incorrect Username or Password"
+      redirect_to login_path, :flash => { :error => "Incorrect Username or Password"}
       #user or pw does not exist
     end
 

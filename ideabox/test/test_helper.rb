@@ -25,4 +25,8 @@ class ActionDispatch::IntegrationTest
 
     assert page.has_content?("Hello MarloMajor")
   end
+
+  def user_account_is_created
+
+  end
 end
