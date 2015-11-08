@@ -15,10 +15,30 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Login")
     click_button "Login"
     assert page.has_content?("Login")
-    save_and_open_page
     assert page.has_content?("Incorrect Username or Password")
   end
 
-  # test for if user does not exist
-  # and test for if user name and / or pw is wrong
+  test 'if user enters wrong username shows error' do
+    user = User.create(username: "MarloMajor", password: "password")
+
+    visit login_path
+    fill_in "Username", with: "notMarloMajor"
+    fill_in "Password", with: "password"
+    click_button "Login"
+
+    assert page.has_content?("Incorrect Username or Password")
+  end
+
+  test 'if user enters wrong password it shows error' do
+    user = User.create(username: "MarloMajor", password: "password")
+
+    visit login_path
+    fill_in "Username", with: "MarloMajor"
+    fill_in "Password", with: "incorrectpassword"
+    click_button "Login"
+
+    assert page.has_content?("Incorrect Username or Password")
+  end
+
+
 end
