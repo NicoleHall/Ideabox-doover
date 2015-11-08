@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GuessCreateAccountTest < ActionDispatch::IntegrationTest
+class GuestCreateAccountTest < ActionDispatch::IntegrationTest
 
   test 'user can create account' do
     visit new_user_path
