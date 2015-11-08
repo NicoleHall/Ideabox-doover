@@ -7,7 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <% if current_user %>
+  require 'Pry'; binding.pry
+    Hello <%= current_user.username %>
+  <% end %>
 <%= yield %>
 
 </body>
