@@ -1,0 +1,8 @@
+
+<%= form_for @idea do |f|%>
+<%= f.label :idea_name %>
+<%= f.text_field :idea_name %>
+<%= f.label :idea_description %>
+<%= f.text_field :idea_description %>
+<%= f.submit "Create Idea" %>
+<% end %>
